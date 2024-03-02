@@ -58,7 +58,7 @@ python final_code.py
 ```
 
 
-# Overview of final_code.py
+## Overview of final_code.py
 - The most important thing to note in github is final_code.py. The main logic of this file is as following:
   - Data Concatenation: The script processes and concatenates multiple CSV files containing hotel data from January to November 2023. These files are concatenated to form a comprehensive dataset for analysis.
   - Data Cleaning and Preparation: The code include steps to clean and prepare the data for analysis. This could involve handling missing values, converting data types, and merging the original Dallas DataFrame with the unique_locations to include the Location_ID.
