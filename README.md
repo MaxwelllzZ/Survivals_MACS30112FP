@@ -29,13 +29,23 @@ The specific version numbers for these libraries will ensure compatibility and r
 
 
 ### How to Run the Software
-Ensure all required libraries are installed. You can install them using pip:
-
+1. Ensure all required libraries are installed. You can install them using pip:
 ```bash
 pip install pandas numpy matplotlib seaborn scikit-learn beautifulsoup4
 ```
 
-Clone the project repository from GitHub:
+2. Clone the project repository from GitHub:
+```bash
+git clone https://github.com/MaxwelllzZ/Survivals_MACS30112FP
+```
+
+3. Navigate to the project directory
+
+
+4. Run the main project script
+```bash
+python final_code.py
+```
 
 README.txt: this file
 
