@@ -56,3 +56,10 @@ cd Survivals_MACS30112FP
 ```bash
 python final_code.py
 ```
+
+
+## Team Members
+- Joyce Fu
+- Shuyi Zhang
+- Sitong Zhang
+- Guanhong Liu
