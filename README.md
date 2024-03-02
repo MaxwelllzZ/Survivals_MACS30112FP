@@ -62,3 +62,8 @@ python final_code.py
 - Shuyi Zhang: Web Scraping Google Reviews Data, Data Visualization
 - Sitong Zhang: Data Cleaning & Data Processing
 - Guanhong Liu: Data Analysis, Data Visualization
+
+
+## Links
+- link to in-class presentation slides:
+- link to video:
