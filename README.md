@@ -30,13 +30,6 @@ Our project has the following ***key findings***:
 - Google Reviews: Data is scraped from Google Reviews, including hotel names, addresses, ratings, and reviews per month, for the same period.
 
 
-## Overall Findings
-- Rating has positive effect on revenue.
-- Signal Effect(Threshold presence) has negative effect on revenue.
-- Google threshold is smaller than Yelp. Their actual ratings is very close to present ratings.
-- Rating itself is insufficient. Review Count matters.
-
-
 ## Required Libraries and Version Numbers
 This project requires the following Python libraries:
 
