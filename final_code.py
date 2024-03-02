@@ -197,13 +197,10 @@ def perform_rd_analysis(data, bandwidth, formula):
 # Functions of formula = 'revenue ~ T + actual_stars + C(hotelStars) + C(publishedAtDate)'
 # RD Analysis for Bandwidth 0.025
 perform_rd_analysis(df, 0.025, "revenue ~ T + actual_stars + C(hotelStars) + C(publishedAtDate)")
-
 # RD Analysis for Bandwidth 0.02
 perform_rd_analysis(df, 0.02, "revenue ~ T + actual_stars + C(hotelStars) + C(publishedAtDate)")
-
 # RD Analysis for Bandwidth 0.05
 perform_rd_analysis(df, 0.05, "revenue ~ T + actual_stars + C(hotelStars) + C(publishedAtDate)")
-
 
 # Functions of formula = 'revenue ~ T + actual_stars + C(fitnessCenter) + C(restaurant) + C(freeWifi) + C(publishedAtDate)'
 # 3 Amenities features
@@ -213,7 +210,6 @@ perform_rd_analysis(df, 0.025, "revenue ~ T + actual_stars + C(fitnessCenter) + 
 perform_rd_analysis(df, 0.02, "revenue ~ T + actual_stars + C(fitnessCenter) + C(restaurant) + C(freeWifi) + C(publishedAtDate)")
 # RD Analysis for Bandwidth 0.05
 perform_rd_analysis(df, 0.05, "revenue ~ T + actual_stars + C(fitnessCenter) + C(restaurant) + C(freeWifi) + C(publishedAtDate)")
-
 
 #heterogeneous
 #reviewContained 0-10, 10-20, etc
