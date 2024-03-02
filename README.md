@@ -27,7 +27,7 @@ This project requires the following Python libraries:
 - pandas (2.1.4): for data manipulation and analysis
 - numpy (1.26.3): for numerical calculations
 - matplotlib (3.8.0): for plotting graphs
-- seaborn (0.13.2): for making statistical graphics.
+- seaborn (0.13.2): for making statistical graphics
 - statsmodels (0.14.1): for statistical models
 - linearmodels (5.4): for panel data models
 - apify_client (1.6.3): for working with the Apify API to scrape web data
