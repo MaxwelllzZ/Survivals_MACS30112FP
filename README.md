@@ -66,4 +66,5 @@ python final_code.py
 
 ## Links
 - link to in-class presentation slides:
+- link to uodated presentation slides:
 - link to video:
