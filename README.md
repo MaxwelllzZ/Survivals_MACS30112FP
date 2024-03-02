@@ -14,6 +14,13 @@ The Survivals group's project aims to investigate the reputational and signaling
 - Google Reviews: Data scraped from Google Reviews, including hotel names, addresses, ratings, and reviews per month, for the same period.
 
 
+## Overall Findings !!!Check this part
+- Rating has positive effect on revenue.
+- Signal Effect(Threshold presence) has negative effect on revenue.
+- Google threshold is smaller than Yelp. Their actual ratings is very close to present ratings.
+- Rating itself is insufficient. Review Count matters.
+
+
 ## Required Libraries and Version Numbers
 This project requires the following Python libraries:
 
