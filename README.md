@@ -1,4 +1,5 @@
-# Survivals_MACS30112 Final Project: The Effect of Google Customer Ratings on Dallas Hotels' Revenue
+# Survivals_MACS30112 Final Project
+# The Effect of Google Customer Ratings on Dallas Hotels' Revenue
 
 
 ## Project Goals
