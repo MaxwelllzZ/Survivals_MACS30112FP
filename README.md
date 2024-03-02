@@ -57,6 +57,15 @@ python final_code.py
 ```
 
 
+# How to navigate the Github repo
+- The most important thing to note in github is final_code.py. The main logic of this file is as following:
+  - Data Concatenation: The script processes and concatenates multiple CSV files containing hotel data from January to November 2023. These files are concatenated to form a comprehensive dataset for analysis.
+  - Data Cleaning and Preparation: The code include steps to clean and prepare the data for analysis. This could involve handling missing values, converting data types, and merging the original Dallas DataFrame with the unique_locations to include the Location_ID.
+  - Statistical Modeling: Utilizing statsmodels and linearmodels.panel to examine the impact of customer reviews on hotel revenues, among other analyses.
+  - Data Visualization: With matplotlib, the script likely generates plots and charts to visualize the findings from the statistical analysis, providing insights into the data and model results.
+ - Output Generation: The final part of the script might involve generating output files or summaries of the analyses, including saving visualizations, exporting results to CSV files, or printing summaries to the console.
+
+
 ## Team Members & Responsibilities
 - Joyce Fu: Web Scraping Google Reviews Data, Model Estimation
 - Shuyi Zhang: Web Scraping Google Reviews Data, Data Visualization
