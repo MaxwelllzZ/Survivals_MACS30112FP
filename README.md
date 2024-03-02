@@ -1,13 +1,13 @@
 # Survivals_MACS30112FP
 
-## MACS_30112_Final_Project: The Effect of Google Customer Ratings on Dallas Hotels' Revenue
+## MACS30112 Final Project: The Effect of Google Customer Ratings on Dallas Hotels' Revenue
 
 ### Project Goals
-The Survivals project aims to investigate the reputational and signaling effects of customer reviews on online platforms, specifically focusing on their impact on Texas hotel revenues. The research questions addressed include:
+The Survivals group's project aims to investigate the reputational and signaling effects of customer reviews on online platforms, specifically focusing on their impact on Dallas hotel revenues. Our group aim to explore whether customer ratings can affect a hotel's revenues. We are also interested in how do online customer ratings influence Texas hotel revenues through signal or reputation channels, and how big are their magnitudes?
 
-Do customer ratings affect Texas hotel revenues?
-How do online customer ratings influence Texas hotel revenues, through signal or reputation channels?
-What are the magnitudes of the reputational effects and signaling effects?
+### Data Sources
+Dallas Hotel Tax Receipts: Monthly occupancy tax data from the Texas government for hotels in Dallas, covering January 2021 to November 2023. The dataset can be directly downloaded from the Texas Comptroller of Public Accounts (https://data-secure.comptroller.texas.gov/main/files/public-files).
+Google Reviews: Data scraped from Google Reviews, including hotel names, addresses, ratings, and reviews per month, for the same period.
 
 README.txt: this file
 
