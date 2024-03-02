@@ -20,12 +20,20 @@ This project requires the following Python libraries:
 - numpy (1.26.3): for numerical calculations
 - matplotlib (3.8.0): for plotting graphs
 - seaborn (0.13.2): for making statistical graphics.
-- BeautifulSoup: for web scraping Google Reviews data 检查一下用没有用！
+- BeautifulSoup (4.12.2): for web scraping Google Reviews data 检查一下用没有用！
 - statsmodels (0.14.1): for statistical models
 - linearmodels (5.4): for panel data models
 - apify_client (1.6.3): for working with the Apify API to scrape web data
   
 The specific version numbers for these libraries will ensure compatibility and reproducibility of the project's results.
+
+
+### How to Run the Software
+Ensure all required libraries are installed. You can install them using pip:
+
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn beautifulsoup4
+
 
 README.txt: this file
 
