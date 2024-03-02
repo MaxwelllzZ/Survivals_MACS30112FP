@@ -5,6 +5,7 @@ import numpy as np
 import statsmodels.api as sm
 from linearmodels.panel import PanelOLS
 import matplotlib.pyplot as plt
+from statsmodels.formula.api import ols
 
 # Concatenate Datasets Part
 hotel_2301 = 'Data/HOTEL_2023_01to11/Hotel_data2023/HOT2301.CSV'
@@ -51,8 +52,7 @@ hotel_2021_path = 'Data/HOTEL2021/HOTEL2021.CSV'
 hotel_2022_path = 'Data/HOTEL2022/HOTEL2022.CSV'
 
 # Updated has 2021 to 2023
-file_path_17_to_22= [hotel_2021_path, hotel_2022_path]
-
+file_path_21_to_22= [hotel_2021_path, hotel_2022_path]
 
 # Data type specification for zip codes as strings
 dtype_spec = {'Taxpayer_Zip': str, 'Location_Zip': str}
@@ -62,11 +62,9 @@ def clean_zip_code(zip_code):
     clean_zip = ''.join(filter(str.isdigit, str(zip_code)))
     return clean_zip[:5] if len(clean_zip) >= 5 else None
 
-
-
+# Concatenate dfs
 df1s = []
-
-for file in file_path_17_to_22:
+for file in file_path_21_to_22:
     try:
         # Adding low_memory=False parameter
         df = pd.read_csv(file, names=headers, header=None, encoding='ISO-8859-1', dtype=dtype_spec, low_memory=False)
@@ -126,19 +124,37 @@ Dallas_with_ID_sorted.to_csv("Dallas_with_ID.csv",index=False, header=False)
 
 # Regressions Part
 # Loading dataset
-df_path = 'cleaned_final_ver2.csv' # 这两行基于需求考虑是否被120-125中间的code 代替
+df_path = 'cleaned_final_ver4.csv' # 这两行基于需求考虑是否被120-125中间的code 代替
 df =  pd.read_csv(df_path, encoding='ISO-8859-1')
+df = df.dropna(subset=['additionalInfo'])
+# Drop the ones have problems with calculating ratings
+df.drop(index=[1856, 1857, 1858, 4239, 4240, 4241, 4242, 4243, 4244], inplace=True)
+df["additionalInfo"] = df["additionalInfo"].apply(lambda x: eval(x))
+df = df[df["additionalInfo"].apply(lambda x: "Amenities" in x.keys())]
 
-# Cleaning
-df.drop(index=1844, inplace=True)
-df.drop(index=4230, inplace=True)
+# New additional information
+n = df["additionalInfo"].apply(lambda x: x["Amenities"])
+n = n.apply(lambda i: {k: v for d in i for k, v in d.items()})
+df["freeWifi"] = n.apply(lambda i: i.get("Free Wi-Fi", None))
+df["freeBreakfast"] = n.apply(lambda i: i.get("Free breakfast", None))
+df["freeParking"] = n.apply(lambda i: i.get("Free parking", None))
+df["pool"] = n.apply(lambda i: i.get("Pool", None))
+df["restaurant"] = n.apply(lambda i: i.get("Restaurant", None))
+df["fitnessCenter"] = n.apply(lambda i: i.get("Fitness center", None))
+
+none_counts = {
+    "freeWifi": df["freeWifi"].isna().sum(),
+    "freeBreakfast": df["freeBreakfast"].isna().sum(),
+    "freeParking": df["freeParking"].isna().sum(),
+    "pool": df["pool"].isna().sum(),
+    "restaurant": df["restaurant"].isna().sum(),
+    "fitnessCenter": df["fitnessCenter"].isna().sum()
+}
+print(none_counts)
 
 # Select observations which have revnue at that time period
 df = df[df["TotalRoomReceipts"] != 0]
-
-# Setting up variables for future regressions
 df['revenue'] =  np.log(df['TotalRoomReceipts']+1)
-rating = df['present_stars']
 by_hotel = df['hotelid']
 
 # Convert 'PublishedAtDate' to datetime format
@@ -151,30 +167,54 @@ df = df.set_index(['hotelid', 'publishedAtDate'])
 df['T'] = (df['actual_stars'] < df['present_stars']).astype(int)
 actual_rating = df['actual_stars']
 
-# Regressions results will be shown below
-def run_regression(formula, data, regression_number):
-    # Define the model
-    model = PanelOLS.from_formula(formula, data)
 
-    # Fit the model
-    results = model.fit()
+# OLS Regressions
+# Function to perform OLS regression and print the summary
+def perform_ols(formula, data):
+    model = ols(formula, data=data).fit()
+    print(model.summary())
 
-    # Print the summary of the regression results
-    print(f"Regression {regression_number} Results")
-    print("=" * 80)
-    print(results)
+# Regression 1
+perform_ols("revenue ~ present_stars", df)
 
-# 1st regression, use run_regression function
-run_regression('revenue ~ rating', df, 1)
+# Regression 2
+perform_ols("revenue ~ present_stars + hotelStars + C(publishedAtDate)", df)
 
-# 2nd regression
-run_regression('revenue ~ rating + EntityEffects + TimeEffects', df, 2)
+# Regression 3
+perform_ols("revenue ~ present_stars + C(fitnessCenter) + C(restaurant) + C(freeWifi) + C(publishedAtDate)", df)
 
-# 3rd regression
-run_regression('revenue ~ T + actual_rating + EntityEffects + TimeEffects', df, 3)
+# Regression Discontinuity
+#3 kinds: 0.025, 0.02, 0.05(all data, which is df itself)
+def perform_rd_analysis(data, bandwidth, formula):
+    # Filter the data based on the specified bandwidth
+    df_rd = data[abs(data['actual_stars'] - data['present_stars']) <= bandwidth]
 
-# 4th regression (with interaction term)
-run_regression('revenue ~ T + rating + reviewLength + rating:reviewLength + EntityEffects + TimeEffects', df, 4)
+    # Perform OLS regression
+    model = ols(formula, data=df_rd).fit()
+    print(f"Regression Discontinuity Analysis for Bandwidth: {bandwidth}")
+    print(model.summary())
 
-# 5th regression (with another interaction term)
-run_regression('revenue ~ T + rating + reviewContained + rating:reviewContained + EntityEffects + TimeEffects', df, 5)
+# With different bandwidths and formulas
+# Functions of formula = 'revenue ~ T + actual_stars + C(hotelStars) + C(publishedAtDate)'
+# RD Analysis for Bandwidth 0.025
+perform_rd_analysis(df, 0.025, "revenue ~ T + actual_stars + C(hotelStars) + C(publishedAtDate)")
+
+# RD Analysis for Bandwidth 0.02
+perform_rd_analysis(df, 0.02, "revenue ~ T + actual_stars + C(hotelStars) + C(publishedAtDate)")
+
+# RD Analysis for Bandwidth 0.05
+perform_rd_analysis(df, 0.05, "revenue ~ T + actual_stars + C(hotelStars) + C(publishedAtDate)")
+
+
+# Functions of formula = 'revenue ~ T + actual_stars + C(fitnessCenter) + C(restaurant) + C(freeWifi) + C(publishedAtDate)'
+# 3 Amenities features
+# RD Analysis for Bandwidth 0.025
+perform_rd_analysis(df, 0.025, "revenue ~ T + actual_stars + C(fitnessCenter) + C(restaurant) + C(freeWifi) + C(publishedAtDate)")
+# RD Analysis for Bandwidth 0.02
+perform_rd_analysis(df, 0.02, "revenue ~ T + actual_stars + C(fitnessCenter) + C(restaurant) + C(freeWifi) + C(publishedAtDate)")
+# RD Analysis for Bandwidth 0.05
+perform_rd_analysis(df, 0.05, "revenue ~ T + actual_stars + C(fitnessCenter) + C(restaurant) + C(freeWifi) + C(publishedAtDate)")
+
+
+#heterogeneous
+#reviewContained 0-10, 10-20, etc
