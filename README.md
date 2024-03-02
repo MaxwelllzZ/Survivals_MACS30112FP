@@ -11,7 +11,7 @@ The Survivals group's project aims to investigate the reputational and signaling
 ## Data Sources
 - Dallas Hotel Tax Receipts: Monthly occupancy tax data from the Texas government for hotels in Dallas, covering January 2021 to November 2023. The dataset can be directly downloaded from the Texas Comptroller of Public Accounts (https://data-secure.comptroller.texas.gov/main/files/public-files).
 
-- Google Reviews: Data scraped from Google Reviews, including hotel names, addresses, ratings, and reviews per month, for the same period.
+- Google Reviews: Data is scraped from Google Reviews, including hotel names, addresses, ratings, and reviews per month, for the same period.
 
 
 ## Overall Findings !!!Check this part
