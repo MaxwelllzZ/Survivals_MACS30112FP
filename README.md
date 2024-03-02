@@ -2,7 +2,10 @@
 
 
 ## Project Goals
-The Survivals group's project aims to investigate the reputational and signaling effects of customer reviews on online platforms, specifically focusing on their impact on Dallas hotel revenues. We would explore whether customer ratings can affect a hotel's revenues. Also, we are interested in how do online customer ratings influence Texas hotel revenues through signal or reputation channels, and how big are their magnitudes.
+The Survivals group's project aims to investigate the reputational and signaling effects of customer reviews on online platforms, specifically focusing on their impact on Dallas hotel revenues. Specifically, we will answer the following **research questions**:
+- Do customer ratings affect Texas hotel revenues?
+- How do online customer ratings influence Dallas hotel revenues through signal or reputation channels
+- How great are the reputational effects and signaling effects?
 
 
 ## Data Sources
