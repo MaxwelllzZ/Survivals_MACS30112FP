@@ -33,7 +33,9 @@ Ensure all required libraries are installed. You can install them using pip:
 
 ```bash
 pip install pandas numpy matplotlib seaborn scikit-learn beautifulsoup4
+```
 
+Clone the project repository from GitHub:
 
 README.txt: this file
 
