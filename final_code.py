@@ -5,6 +5,7 @@ import numpy as np
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
 from statsmodels.formula.api import ols
+from linearmodels.panel import PanelOLS
 
 # Concatenate Datasets Part
 hotel_2301 = 'Data/HOTEL_2023_01to11/Hotel_data2023/HOT2301.CSV'
@@ -213,3 +214,29 @@ perform_rd_analysis(df, 0.05, "revenue ~ T + actual_stars + C(fitnessCenter) + C
 
 #heterogeneous
 #reviewContained 0-10, 10-20, etc
+# Version of using ols
+def PO_run_regression_for_review_contained_ranges(formula, data, lower_bound, upper_bound):
+    # Filter the data based on the specified range of reviewContained
+    df_filtered = data[(data['reviewContained'] >= lower_bound) & (data['reviewContained'] < upper_bound)]
+    # Performing OLS regression
+    model = ols(formula, data=df_filtered).fit()
+    print(f"PanelOLS Regression for reviewContained range {lower_bound}-{upper_bound}")
+    print(model.summary())
+
+PO_run_regression_for_review_contained_ranges('revenue ~ T + rating + reviewContained + rating:reviewContained', df, 0, 10)
+PO_run_regression_for_review_contained_ranges('revenue ~ T + rating + reviewContained + rating:reviewContained', df, 0, 20)
+
+# Version of using PanelOls
+def run_regression_for_reviewContained_range(formula, data, lower_bound, upper_bound):
+    # Filter the data based on the specified range of reviewContained
+    df_filtered = data[(data['reviewContained'] >= lower_bound) & (data['reviewContained'] < upper_bound)]
+    model = PanelOLS.from_formula(formula, data=df_filtered)
+    results = model.fit()
+
+    # Print the summary of the regression results
+    print(f"OLS Regression Results for reviewContained Range {lower_bound}-{upper_bound}")
+    print(results)
+
+# Example usage of the function
+run_regression_for_reviewContained_range('revenue ~ T + rating + reviewContained + rating:reviewContained + EntityEffects + TimeEffects', df, 0, 10)
+run_regression_for_reviewContained_range('revenue ~ T + rating + reviewContained + rating:reviewContained + EntityEffects + TimeEffects', df, 10, 20)
