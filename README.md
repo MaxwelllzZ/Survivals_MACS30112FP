@@ -16,14 +16,16 @@ The Survivals group's project aims to investigate the reputational and signaling
 ### Required Libraries and Version Numbers
 This project requires the following Python libraries:
 
-- pandas: for data manipulation and analysis
-- numpy: for numerical calculations
-- matplotlib: for plotting graphs
-- seaborn: for making statistical graphics.
+- pandas (2.1.4): for data manipulation and analysis
+- numpy (1.26.3): for numerical calculations
+- matplotlib (3.8.0): for plotting graphs
+- seaborn (0.13.2): for making statistical graphics.
 - BeautifulSoup: for web scraping Google Reviews data 检查一下用没有用！
-- statsmodels: for statistical models
-- linearmodels: for panel data models
-- apify_client: for working with the Apify API to scrape web data
+- statsmodels (0.14.1): for statistical models
+- linearmodels (5.4): for panel data models
+- apify_client (1.6.3): for working with the Apify API to scrape web data
+  
+The specific version numbers for these libraries will ensure compatibility and reproducibility of the project's results.
 
 README.txt: this file
 
