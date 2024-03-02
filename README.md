@@ -40,7 +40,9 @@ git clone https://github.com/MaxwelllzZ/Survivals_MACS30112FP
 ```
 
 3. Navigate to the project directory
-
+```bash
+cd Survivals_MACS30112FP
+```
 
 4. Run the main project script
 ```bash
