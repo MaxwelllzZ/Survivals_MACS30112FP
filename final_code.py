@@ -3,7 +3,6 @@ import csv
 import pandas as pd
 import numpy as np
 import statsmodels.api as sm
-from linearmodels.panel import PanelOLS
 import matplotlib.pyplot as plt
 from statsmodels.formula.api import ols
 
