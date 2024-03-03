@@ -77,10 +77,11 @@ python final_code.py
 
 
 ## Team Members & Responsibilities
-- Joyce Fu: Web Scraping Google Reviews Data, Model Estimation
+- All team members are responsible for slides
+- Joyce Fu: Web Scraping Google Reviews Data, Cleaning Google Reviews Data, Presentation
 - Shuyi Zhang: Web Scraping Google Reviews Data, Data Visualization
-- Sitong Zhang: Data Cleaning, Data Processing
-- Guanhong Liu: Data Analysis, Data Visualization
+- Sitong Zhang: Cleaning Hotel Revenue Data, Model Estimation, Presentation
+- Guanhong Liu: Data Analysis, Data Visualization, Presentation
 
 
 ## Links
