@@ -80,7 +80,7 @@ python final_code.py
 
 
 ## Links
-- link to in-class presentation slides:
-- link to uodated presentation slides:
-- link to video:
+- link to in-class presentation slides: https://docs.google.com/presentation/d/1D-oqwv20HpieeWVBs7Tvtis7JcCGzB67PGVg6JB_NME/edit?usp=sharing
+- link to uodated presentation slides: https://docs.google.com/presentation/d/198GTRKbkQW5zBdyqMo-aT8oWt8cS-Gy2vBG9Pftpw6g/edit?usp=sharing
+- link to video: https://drive.google.com/file/d/1AUGA9E-5cmu-Ahrh3nu26id2G7I3Qk1H/view?usp=sharing
 >>>>>>> 63423e2c644a7301a55108c999737e32a09278f7
