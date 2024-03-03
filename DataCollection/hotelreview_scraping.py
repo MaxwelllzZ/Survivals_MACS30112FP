@@ -15,7 +15,7 @@ from apify_client import ApifyClient
 import query_generation
 
 # generate query link based on hotel with data in 2023 Quarter4 (latest data)
-rev = pd.read_excel("~/Desktop/final_project/hotel_revenue_23q4.xlsx",
+rev = pd.read_excel("hotel_revenue_23q4.xlsx",
                     usecols="J:N,Q,T,V")
 rev = query_generation.querylink(rev)
 rev["map_search_url"] = "https://google.com/maps/search/" + rev["hotel_query"]
