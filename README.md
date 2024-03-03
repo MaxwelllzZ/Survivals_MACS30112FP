@@ -62,13 +62,22 @@ python final_code.py
 ```
 
 
-## Overview of final_code.py
-- The most important thing to note in github is final_code.py. The main logic of this file is as following:
-  - Data Concatenation: The script processes and concatenates multiple CSV files containing hotel data from January to November 2023. These files are concatenated to form a comprehensive dataset for analysis.
-  - Data Cleaning and Preparation: The code include steps to clean and prepare the data for analysis. This could involve handling missing values, converting data types, and merging the original Dallas DataFrame with the unique_locations to include the Location_ID.
-  - Statistical Modeling: Utilizing statsmodels and linearmodels.panel to examine the impact of customer reviews on hotel revenues, among other analyses.
-  - Data Visualization: With matplotlib, the script likely generates plots and charts to visualize the findings from the statistical analysis, providing insights into the data and model results.
-   - Output Generation: The final part of the script might involve generating output files or summaries of the analyses, including saving visualizations, exporting results to CSV files, or printing summaries to the console.
+## Structure of the Files
+- Data
+  - Data folder contains information (CSV files) of the hotel's tax information which are downloaded from Taxas government-related websites. The datasets have info from Jan 2021 to Sep 2023
+- DataCleaning
+  - In this folder, there are relevant cleaned CSV files using IPYNB files.
+  - We used hotelrevenue.ipynb file to output Dallas_with_ID.csv.
+  - We used hotelreview_cleaning.py to output combinedhotelreviews.csv. review_cleaning.py is used to contain functions used in hotelreview_cleaning.py to clean reviews data for each hotel.
+  - We used merge_finaldata.ipynb to output cleaned_final.csv.
+- DataCollection
+  -  query_generation.py provides function to scrape the information and form them as a query.
+  -  hotelreview_scraping.py is the file we used to scrape data from the web.
+  -  hotel_revenue_23q4.xlsx is used to calibrate and obtain the final list of hotels across the datasets.
+- DataAnalysis
+  -  summary_stat_visualization.ipynb contains the visualizations for the cleaned_final.csv. It has distributino graphs, statistics, and graph of relationship between revenue and observed rating, etc.
+  -  regression_analysis contains the estimation strategies we used for the cleaned_final.csv. There are multiple regression models used. Fixed effect, necessary dummies, interaction terms are included
+
 
 
 ## Team Members & Responsibilities
