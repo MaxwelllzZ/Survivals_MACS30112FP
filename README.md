@@ -77,6 +77,8 @@ python final_code.py
 - DataAnalysis
   -  summary_stat_visualization.ipynb contains the visualizations for the cleaned_final.csv. It has distributino graphs, statistics, and graph of relationship between revenue and observed rating, etc.
   -  regression_analysis contains the estimation strategies we used for the cleaned_final.csv. There are multiple regression models used. Fixed effect, necessary dummies, interaction terms are included
+- READ.ME
+  -  This file.
 
 
 
