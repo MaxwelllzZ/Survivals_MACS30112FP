@@ -45,4 +45,4 @@ recheck_data = []
 h_directory = "/Users/joycepeiting/Desktop/final_project/data/hotel"
 rev = pd.read_csv("~/Desktop/final_project/rev.csv", index_col= 0)
 combined_df_final = all_hotels_review(h_directory, recheck_data, hotel_dfs, rev)
-combined_df_final.to_csv("~/Desktop/combinedhotelreviews.csv")
+combined_df_final.to_csv("combinedhotelreviews.csv")
