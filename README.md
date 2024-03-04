@@ -89,9 +89,6 @@ python final_code.py
 - Sitong Zhang: Cleaning Hotel Revenue Data, Model Estimation, Presentation
 - Guanhong Liu: Data Analysis, Data Visualization, Presentation
 
-## Brief Narrative of using AI
-- We have used Chatgpt to brian storm for ideas at the first stage. Also, before we dived into learning web scraping, we consulted Chatgpt for help but didn't have much success. Later, we explored possible regression models and selected the ones that fit our project, considering Chatgpt's suggestion. 
-
 ## Links
 - link to the in-class presentation slides: https://docs.google.com/presentation/d/1D-oqwv20HpieeWVBs7Tvtis7JcCGzB67PGVg6JB_NME/edit?usp=sharing
 - link to updated presentation slides: https://docs.google.com/presentation/d/1Tf1P0YFRJqrN5RU0rkUoPds0dFiFBEIw/edit?usp=sharing&ouid=107945641793803142854&rtpof=true&sd=true
